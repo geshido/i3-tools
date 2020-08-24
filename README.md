@@ -15,5 +15,5 @@ exec = scratches -s SCRATCHPAD_NAME
 label = %output:0:20:...%
 format =  <label>
 format-foreground = ${colors.foreground-alt}
-click-left = i3-scratch -s SCRATCHPAD_NAME -op toggle
+click-left = scratches -s SCRATCHPAD_NAME -op toggle
 ```
