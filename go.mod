@@ -1,4 +1,4 @@
-module github.com/geshido/i3tools
+module github.com/geshido/i3-tools
 
 go 1.13
 
