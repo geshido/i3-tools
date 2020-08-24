@@ -40,13 +40,11 @@ func main() {
 	handleError(err)
 
 	var foundNode *i3.Node
-	for _, n := range findAll(tree.Root, func(node *i3.Node) bool {
-		return node.Type == i3.Con
-	}) {
-		if itemInStrings(n.Marks, scratchPadName) {
-			foundNode = n
-			break
-		}
+	nodes := findAll(tree.Root, func(node *i3.Node) bool {
+		return node.Type == i3.Con && itemInStrings(node.Marks, scratchPadName)
+	})
+	if len(nodes) > 0 {
+		foundNode = nodes[0]
 	}
 	if foundNode == nil {
 		fmt.Println("")
