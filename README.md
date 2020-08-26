@@ -16,11 +16,13 @@ For each of your scratchpads add this section in polybar config:
 [module/scratch-SCRATCHPAD_NAME]
 type = custom/script
 exec = scratches -s SCRATCHPAD_NAME
-label = %output:0:20:...%
+tail = true
 format =  <label>
 format-foreground = ${colors.foreground-alt}
 click-left = scratches -s SCRATCHPAD_NAME -op toggle
 ```
+
+You must add `tail=true` to this section as tool subscribes to i3 events and prints titles continuously.
 
 **Command line arguments**
 
