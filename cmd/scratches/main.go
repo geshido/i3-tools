@@ -142,6 +142,9 @@ func printScratchpadIfExists(scratchPadName string, truncate int, activeColor st
 		}
 	}
 	truncated := truncateString(foundNode.Name, truncate)
+	if len(truncated) < len(foundNode.Name) {
+		truncated += "…"
+	}
 	if visible {
 		fmt.Printf("%%{F#%s}%s%%{F-}\n", activeColor, truncated)
 	} else {
