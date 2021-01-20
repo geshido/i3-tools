@@ -33,3 +33,22 @@ func FindAll(start *i3.Node, predicate func(*i3.Node) bool) []*i3.Node {
 
 	return result
 }
+
+func FindScratchNode(tree i3.Tree, scratchPadName string) *i3.Node {
+	var foundNode *i3.Node
+	nodes := FindAll(tree.Root, func(node *i3.Node) bool {
+		return node.Type == i3.Con && itemInStrings(node.Marks, scratchPadName)
+	})
+	if len(nodes) > 0 {
+		foundNode = nodes[0]
+	}
+	return foundNode
+}
+func itemInStrings(list []string, item string) bool {
+	for _, i := range list {
+		if i == item {
+			return true
+		}
+	}
+	return false
+}
