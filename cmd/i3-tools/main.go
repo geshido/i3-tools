@@ -116,6 +116,13 @@ func main() {
 						return registry.ContainerAltTab.SwitchToPrevious()
 					},
 				},
+				{
+					Name:  "promote",
+					Usage: "promote container to biggest one",
+					Action: func(c *cli.Context) error {
+						return registry.PromoteWindow.Run()
+					},
+				},
 			},
 		},
 	}

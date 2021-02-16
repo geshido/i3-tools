@@ -4,6 +4,7 @@ import (
 	"github.com/geshido/i3-tools/pkg/storage"
 	"github.com/geshido/i3-tools/pkg/usecases/container_alttab"
 	"github.com/geshido/i3-tools/pkg/usecases/container_move"
+	"github.com/geshido/i3-tools/pkg/usecases/promote_window"
 	"github.com/geshido/i3-tools/pkg/usecases/scratchpad_print"
 	"github.com/geshido/i3-tools/pkg/usecases/scratchpad_toggle"
 	"github.com/geshido/i3-tools/pkg/usecases/workspace_rename"
@@ -17,6 +18,7 @@ type Registry struct {
 	WorkspaceRename  workspace_rename.Usecase
 	ContainerMove    container_move.Usecase
 	ContainerAltTab  container_alttab.Usecase
+	PromoteWindow    promote_window.Usecase
 }
 
 func Build() Registry {
@@ -34,5 +36,6 @@ func Build() Registry {
 		ContainerAltTab: container_alttab.Usecase{
 			Storage: alttabStorage,
 		},
+		PromoteWindow: promote_window.Usecase{},
 	}
 }
